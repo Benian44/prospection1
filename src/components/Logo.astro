@@ -1,0 +1,19 @@
+---
+interface Props {
+  width?: number;
+  height?: number;
+  class?: string;
+}
+
+const { width = 100, height = 100, class: className = '' } = Astro.props;
+---
+
+<img 
+  src="/images/logo.jpg" 
+  alt="IBS SARL - Immobiliers Bâtiments et Services" 
+  width={width} 
+  height={height} 
+  class={`object-contain ${className}`}
+  loading="eager"
+  fetchpriority="high"
+/>

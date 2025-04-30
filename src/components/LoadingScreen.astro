@@ -1,0 +1,71 @@
+---
+import Logo from './Logo.astro';
+---
+
+<div id="loading-screen" class="fixed inset-0 bg-white dark:bg-gray-900 z-50 flex flex-col items-center justify-center">
+  <div class="w-32 h-32 mb-8 animate-pulse">
+    <Logo width={128} height={128} />
+  </div>
+  
+  <div class="loading-spinner">
+    <div class="spinner-circle"></div>
+    <div class="spinner-circle"></div>
+    <div class="spinner-circle"></div>
+  </div>
+</div>
+
+<style>
+  .loading-spinner {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .spinner-circle {
+    width: 1rem;
+    height: 1rem;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    animation: bounce 0.8s infinite;
+  }
+
+  .spinner-circle:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .spinner-circle:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-1rem);
+    }
+  }
+
+  #loading-screen {
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+  }
+
+  #loading-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      const loadingScreen = document.getElementById('loading-screen');
+      if (loadingScreen) {
+        loadingScreen.classList.add('hidden');
+        setTimeout(() => {
+          loadingScreen.style.display = 'none';
+        }, 500);
+      }
+    }, 3000);
+  });
+</script>

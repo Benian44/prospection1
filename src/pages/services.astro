@@ -1,0 +1,246 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import CtaSection from '../components/CtaSection.astro';
+
+const services = [
+  {
+    id: "construction",
+    title: "Construction & Rénovation",
+    description: "Des solutions complètes de construction neuve et de rénovation pour tous vos projets immobiliers.",
+    image: "https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+    features: [
+      "Construction de bâtiments résidentiels et commerciaux",
+      "Rénovation complète d'intérieurs",
+      "Extensions et agrandissements",
+      "Réhabilitation de bâtiments anciens",
+      "Finitions haut de gamme"
+    ]
+  },
+  {
+    id: "menuiserie",
+    title: "Menuiserie Aluminium",
+    description: "Fabrication et installation de menuiseries aluminium sur mesure pour tous vos besoins.",
+    image: "https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+    features: [
+      "Portes d'entrée et intérieures",
+      "Fenêtres et baies vitrées",
+      "Vitrines commerciales",
+      "Cloisons de bureaux",
+      "Vérandas"
+    ]
+  },
+  {
+    id: "rampes",
+    title: "Rampes en Inox",
+    description: "Des rampes en inox élégantes, durables et sécurisées pour tous types d'espaces.",
+    image: "https://images.pexels.com/photos/380330/pexels-photo-380330.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+    features: [
+      "Rampes d'escalier intérieures",
+      "Garde-corps extérieurs",
+      "Balustrades pour balcons",
+      "Inox 304 (classique) et Inox 316 (marine)",
+      "Designs personnalisés"
+    ]
+  },
+  {
+    id: "auvents",
+    title: "Auvents",
+    description: "Protection élégante contre les intempéries avec nos auvents en plexiglass et polycarbonate.",
+    image: "https://images.pexels.com/photos/279607/pexels-photo-279607.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+    features: [
+      "Auvents d'entrée",
+      "Marquises",
+      "Couvertures de terrasse",
+      "Abris pour voitures",
+      "Structures sur mesure"
+    ]
+  },
+  {
+    id: "plafonds",
+    title: "Plafonds Staff",
+    description: "Transformation de vos espaces avec des plafonds staff décoratifs personnalisés.",
+    image: "https://images.pexels.com/photos/1082326/pexels-photo-1082326.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+    features: [
+      "Plafonds décoratifs",
+      "Moulures et corniches",
+      "Rosaces et médaillons",
+      "Designs personnalisés",
+      "Réparation et restauration"
+    ]
+  },
+  {
+    id: "gestion",
+    title: "Gestion Immobilière",
+    description: "Des services complets de gestion immobilière pour propriétaires et investisseurs.",
+    image: "https://images.pexels.com/photos/7821547/pexels-photo-7821547.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+    features: [
+      "Location et gestion locative",
+      "Maintenance et entretien",
+      "Rénovation et valorisation",
+      "Conseil en investissement",
+      "Suivi administratif et financier"
+    ]
+  }
+];
+---
+
+<Layout 
+  title="Nos Services" 
+  description="Découvrez la gamme complète des services proposés par IBS SARL : construction, menuiserie aluminium, rampes inox, auvents, plafonds staff et gestion immobilière."
+>
+  <HeroSection 
+    title="Nos Services"
+    subtitle="Des solutions complètes pour tous vos besoins en construction et menuiserie"
+    backgroundImage="https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+  />
+  
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4" data-aos="fade-up">
+          Nos Solutions Sur Mesure
+        </h2>
+        <div class="h-1 w-20 bg-secondary mx-auto mb-6" data-aos="fade-up" data-aos-delay="100"></div>
+        <p class="text-lg text-gray-600 dark:text-gray-300" data-aos="fade-up" data-aos-delay="200">
+          Chez IBS SARL, nous proposons une gamme complète de services pour répondre à tous vos besoins en construction, menuiserie aluminium et gestion immobilière.
+        </p>
+      </div>
+      
+      <div class="space-y-24">
+        {services.map((service, index) => (
+          <div id={service.id} class="scroll-mt-24">
+            <div class={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 items-center`}>
+              <div class="lg:w-1/2" data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}>
+                <img 
+                  src={service.image} 
+                  alt={service.title} 
+                  class="rounded-lg shadow-lg w-full h-auto object-cover"
+                  style="max-height: 500px;"
+                />
+              </div>
+              
+              <div class="lg:w-1/2" data-aos={index % 2 === 0 ? "fade-left" : "fade-right"}>
+                <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+                  {service.title}
+                </h3>
+                <div class="h-1 w-16 bg-secondary mb-6"></div>
+                <p class="text-gray-600 dark:text-gray-300 mb-6">
+                  {service.description}
+                </p>
+                
+                <ul class="space-y-3 mb-8">
+                  {service.features.map(feature => (
+                    <li class="flex items-start">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-secondary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span class="ml-3 text-gray-600 dark:text-gray-300">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                
+                <a 
+                  href="/demande-devis" 
+                  class="inline-flex items-center px-6 py-3 bg-secondary hover:bg-secondary-600 text-white font-medium rounded-md transition-colors duration-300"
+                >
+                  Demander un devis
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+          Notre Approche
+        </h2>
+        <div class="h-1 w-20 bg-secondary mx-auto mb-6"></div>
+        <p class="text-lg text-gray-600 dark:text-gray-300 mb-10">
+          Pour chaque projet, nous suivons un processus rigoureux pour garantir des résultats exceptionnels et une satisfaction client totale.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="relative" data-aos="fade-up" data-aos-delay="100">
+          <div class="bg-white dark:bg-gray-900 rounded-lg shadow-md p-6 relative z-10">
+            <div class="flex justify-center mb-6">
+              <span class="h-12 w-12 bg-primary text-white text-xl font-bold rounded-full flex items-center justify-center">1</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 text-center">Consultation</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-center">
+              Nous prenons le temps de comprendre vos besoins spécifiques et vos objectifs pour le projet.
+            </p>
+          </div>
+          <!-- Arrow for desktop -->
+          <div class="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+        
+        <div class="relative" data-aos="fade-up" data-aos-delay="200">
+          <div class="bg-white dark:bg-gray-900 rounded-lg shadow-md p-6 relative z-10">
+            <div class="flex justify-center mb-6">
+              <span class="h-12 w-12 bg-primary text-white text-xl font-bold rounded-full flex items-center justify-center">2</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 text-center">Planification</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-center">
+              Nous élaborons un plan détaillé incluant les spécifications, le calendrier et le budget.
+            </p>
+          </div>
+          <!-- Arrow for desktop -->
+          <div class="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+        
+        <div class="relative" data-aos="fade-up" data-aos-delay="300">
+          <div class="bg-white dark:bg-gray-900 rounded-lg shadow-md p-6 relative z-10">
+            <div class="flex justify-center mb-6">
+              <span class="h-12 w-12 bg-primary text-white text-xl font-bold rounded-full flex items-center justify-center">3</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 text-center">Exécution</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-center">
+              Notre équipe qualifiée met en œuvre le plan avec précision, en respectant les normes les plus élevées.
+            </p>
+          </div>
+          <!-- Arrow for desktop -->
+          <div class="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+        
+        <div data-aos="fade-up" data-aos-delay="400">
+          <div class="bg-white dark:bg-gray-900 rounded-lg shadow-md p-6">
+            <div class="flex justify-center mb-6">
+              <span class="h-12 w-12 bg-primary text-white text-xl font-bold rounded-full flex items-center justify-center">4</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 text-center">Livraison</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-center">
+              Nous finalisons chaque détail et vous accompagnons lors de la livraison et au-delà.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <CtaSection 
+    title="Besoin d'un service sur mesure ?"
+    subtitle="Contactez-nous dès aujourd'hui pour discuter de votre projet et obtenir un devis personnalisé."
+  />
+</Layout>

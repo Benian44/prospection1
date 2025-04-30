@@ -1,0 +1,118 @@
+---
+import '@fontsource/poppins/400.css';
+import '@fontsource/poppins/500.css';
+import '@fontsource/poppins/600.css';
+import '@fontsource/poppins/700.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import 'aos/dist/aos.css';
+
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import LoadingScreen from '../components/LoadingScreen.astro';
+import WhatsAppChat from '../components/WhatsAppChat.astro';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { 
+	title, 
+	description = "IBS SARL - L'excellence ivoirienne dans l'immobilier et la menuiserie aluminium. Construction, rénovation, menuiserie aluminium, plafonds staff et gestion immobilière à Abidjan, Côte d'Ivoire."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title} | IBS SARL - Immobiliers Bâtiments et Services</title>
+		
+		<!-- SEO Meta Tags -->
+		<meta name="keywords" content="menuiserie aluminium Abidjan, plafonds staff Abidjan, rampes inox Côte d'Ivoire, IBS SARL, immobilier Abidjan, construction Côte d'Ivoire, rénovation Abidjan" />
+		<meta property="og:title" content={`${title} | IBS SARL - Immobiliers Bâtiments et Services`} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://ibs-sarl.ci" />
+		<meta property="og:image" content="https://ibs-sarl.ci/images/og-image.jpg" />
+		<meta name="twitter:card" content="summary_large_image" />
+		
+		<script is:inline>
+			// On page load or when changing themes, best to add inline in `head` to avoid FOUC
+			if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+				document.documentElement.classList.add('dark');
+			} else {
+				document.documentElement.classList.remove('dark')
+			}
+		</script>
+	</head>
+	<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 font-inter">
+		<LoadingScreen />
+		<Header />
+		<main>
+			<slot />
+		</main>
+		<Footer />
+		<WhatsAppChat />
+		
+		<script>
+			import AOS from 'aos';
+			document.addEventListener('DOMContentLoaded', () => {
+				AOS.init({
+					duration: 800,
+					easing: 'ease-out',
+					once: true,
+				});
+			});
+		</script>
+	</body>
+</html>
+
+<style is:global>
+	html {
+		scroll-behavior: smooth;
+	}
+	
+	body {
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+	}
+	
+	main {
+		flex: 1;
+	}
+	
+	h1, h2, h3, h4, h5, h6 {
+		font-family: 'Poppins', sans-serif;
+		line-height: 1.2;
+	}
+	
+	p, ul, ol, li {
+		line-height: 1.5;
+	}
+	
+	.container {
+		width: 100%;
+		max-width: 1280px;
+		margin: 0 auto;
+		padding: 0 1rem;
+	}
+	
+	@media (min-width: 640px) {
+		.container {
+			padding: 0 1.5rem;
+		}
+	}
+	
+	@media (min-width: 1024px) {
+		.container {
+			padding: 0 2rem;
+		}
+	}
+</style>

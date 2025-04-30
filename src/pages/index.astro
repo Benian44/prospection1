@@ -1,0 +1,106 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import ServiceSection from '../components/ServiceSection.astro';
+import TestimonialSection from '../components/TestimonialSection.astro';
+import ProjectGallery from '../components/ProjectGallery.astro';
+import CtaSection from '../components/CtaSection.astro';
+import ContactInfo from '../components/ContactInfo.astro';
+---
+
+<Layout title="Accueil">
+  <HeroSection 
+    title="L'excellence ivoirienne dans l'immobilier et la menuiserie aluminium"
+    subtitle="Spécialistes en construction, rénovation, menuiserie aluminium, plafonds staff et gestion immobilière"
+    secondaryCtaText="Voir nos services"
+    secondaryCtaLink="/services"
+  />
+  
+  <!-- Why Choose Us Section -->
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row gap-12 items-center">
+        <div class="lg:w-1/2" data-aos="fade-right">
+          <img 
+            src="https://images.pexels.com/photos/8961691/pexels-photo-8961691.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" 
+            alt="Équipe IBS SARL travaillant sur un chantier" 
+            class="rounded-lg shadow-lg w-full h-auto"
+          />
+        </div>
+        
+        <div class="lg:w-1/2" data-aos="fade-left">
+          <div class="mb-6">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              Pourquoi choisir IBS SARL ?
+            </h2>
+            <div class="h-1 w-20 bg-secondary mb-6"></div>
+            <p class="text-gray-600 dark:text-gray-300 mb-6">
+              IBS SARL est une entreprise 100% ivoirienne engagée dans l'excellence et la satisfaction client. Notre expertise couvre tous les aspects de la construction, de la menuiserie aluminium et de la gestion immobilière.
+            </p>
+          </div>
+          
+          <div class="space-y-4">
+            <!-- Features -->
+            <div class="flex items-start">
+              <div class="flex-shrink-0 h-6 w-6 rounded-full bg-secondary flex items-center justify-center text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <div class="ml-4">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Expertise locale</h3>
+                <p class="text-gray-600 dark:text-gray-300">Une entreprise 100% ivoirienne avec une connaissance approfondie du marché local.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="flex-shrink-0 h-6 w-6 rounded-full bg-secondary flex items-center justify-center text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <div class="ml-4">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Qualité supérieure</h3>
+                <p class="text-gray-600 dark:text-gray-300">Nous utilisons uniquement des matériaux de premier choix et employons des artisans qualifiés.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="flex-shrink-0 h-6 w-6 rounded-full bg-secondary flex items-center justify-center text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <div class="ml-4">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Service sur mesure</h3>
+                <p class="text-gray-600 dark:text-gray-300">Chaque projet est unique. Nous adaptons nos services pour répondre parfaitement à vos besoins spécifiques.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="flex-shrink-0 h-6 w-6 rounded-full bg-secondary flex items-center justify-center text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <div class="ml-4">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Respect des délais</h3>
+                <p class="text-gray-600 dark:text-gray-300">Nous nous engageons à livrer nos projets dans les délais convenus, sans compromettre la qualité.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <ServiceSection />
+  
+  <ProjectGallery />
+  
+  <TestimonialSection />
+  
+  <CtaSection />
+  
+  <ContactInfo />
+</Layout>

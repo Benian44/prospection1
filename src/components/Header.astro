@@ -1,0 +1,94 @@
+---
+import Logo from './Logo.astro';
+
+const navigation = [
+  { name: 'Accueil', href: '/' },
+  { name: 'À Propos', href: '/a-propos' },
+  { name: 'Services', href: '/services' },
+  { name: 'Réalisations', href: '/realisations' },
+  { name: 'Contact', href: '/contact' },
+];
+---
+
+<header class="w-full sticky top-0 z-40 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-sm">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+      <div class="flex-shrink-0">
+        <a href="/" class="flex items-center gap-2">
+          <Logo width={60} height={60} />
+          <div class="hidden md:block">
+            <div class="font-poppins font-bold text-xl text-primary">IBS SARL</div>
+            <div class="text-xs text-gray-600 dark:text-gray-400">Immobiliers Bâtiments et Services</div>
+          </div>
+        </a>
+      </div>
+      
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button id="mobile-menu-button" class="flex items-center p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none">
+          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Desktop navigation -->
+      <nav class="hidden md:flex space-x-8">
+        {navigation.map((item) => (
+          <a href={item.href} class="font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors duration-200">
+            {item.name}
+          </a>
+        ))}
+        <a href="/demande-devis" class="flex items-center justify-center px-5 py-2 bg-secondary hover:bg-secondary-600 transition-colors duration-200 text-white font-medium rounded-md">
+          Demander un devis
+        </a>
+      </nav>
+    </div>
+  </div>
+  
+  <!-- Mobile menu, show/hide based on menu state -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900 shadow-lg">
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      {navigation.map((item) => (
+        <a href={item.href} class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200">
+          {item.name}
+        </a>
+      ))}
+      <a href="/demande-devis" class="block px-3 py-2 rounded-md text-base font-medium bg-secondary hover:bg-secondary-600 text-white transition-colors duration-200">
+        Demander un devis
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+  
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+      if (!mobileMenu.contains(e.target as Node) && !mobileMenuButton?.contains(e.target as Node)) {
+        mobileMenu.classList.add('hidden');
+      }
+    }
+  });
+  
+  // Header scroll behavior
+  const header = document.querySelector('header');
+  
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 0) {
+      header?.classList.add('shadow');
+    } else {
+      header?.classList.remove('shadow');
+    }
+  });
+</script>

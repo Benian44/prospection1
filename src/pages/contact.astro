@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import ContactForm from '../components/ContactForm.astro';
+import ContactInfo from '../components/ContactInfo.astro';
+import MapSection from '../components/MapSection.astro';
+---
+
+<Layout 
+  title="Contact" 
+  description="Contactez IBS SARL pour tous vos besoins en construction, menuiserie aluminium, et gestion immobilière à Abidjan, Côte d'Ivoire."
+>
+  <HeroSection 
+    title="Contactez-nous"
+    subtitle="Notre équipe est à votre disposition pour répondre à toutes vos questions"
+    backgroundImage="https://images.pexels.com/photos/3568520/pexels-photo-3568520.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+  />
+  
+  <ContactInfo />
+  
+  <MapSection />
+  
+  <ContactForm />
+  
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+          Questions Fréquentes
+        </h2>
+        <div class="h-1 w-20 bg-secondary mx-auto mb-8"></div>
+        
+        <div class="space-y-6 text-left">
+          <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Comment obtenir un devis ?</h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              Vous pouvez demander un devis en remplissant notre formulaire en ligne, en nous appelant directement ou en nous rendant visite à nos bureaux. Après une évaluation de vos besoins, nous vous fournirons un devis détaillé et gratuit dans les plus brefs délais.
+            </p>
+          </div>
+          
+          <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Quels sont vos délais d'intervention ?</h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              Nos délais d'intervention varient en fonction de la nature et de l'ampleur du projet. Pour les petits travaux, nous pouvons généralement intervenir dans un délai de quelques jours à une semaine. Pour les projets plus importants, un calendrier détaillé vous sera communiqué lors de l'établissement du devis.
+            </p>
+          </div>
+          
+          <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="300">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Offrez-vous des garanties sur vos travaux ?</h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              Oui, tous nos travaux bénéficient d'une garantie. La durée de cette garantie varie selon le type de prestation réalisée. De plus, nous utilisons des matériaux de qualité qui disposent également de leurs propres garanties fabricant. Tous les détails concernant les garanties sont clairement indiqués dans nos contrats.
+            </p>
+          </div>
+          
+          <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="400">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Travaillez-vous avec des architectes ou designers ?</h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              Absolument, nous collaborons régulièrement avec des architectes et designers d'intérieur. Nous pouvons travailler avec les professionnels de votre choix ou vous recommander des partenaires de confiance si vous n'en avez pas déjà. Notre objectif est de garantir une coordination parfaite pour la réussite de votre projet.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

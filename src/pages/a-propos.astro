@@ -1,0 +1,229 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import CtaSection from '../components/CtaSection.astro';
+---
+
+<Layout 
+  title="À Propos" 
+  description="Découvrez IBS SARL, une entreprise 100% ivoirienne spécialisée dans la construction, rénovation, menuiserie aluminium et gestion immobilière à Abidjan."
+>
+  <HeroSection 
+    title="À Propos d'IBS SARL"
+    subtitle="Une entreprise 100% ivoirienne dédiée à l'excellence"
+    backgroundImage="https://images.pexels.com/photos/8961642/pexels-photo-8961642.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+  />
+  
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div data-aos="fade-right">
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+            Notre Histoire
+          </h2>
+          <div class="h-1 w-20 bg-secondary mb-6"></div>
+          <p class="text-gray-600 dark:text-gray-300 mb-6">
+            Fondée en 2010 à Abidjan, IBS SARL (Immobiliers Bâtiments et Services) est née de la passion de ses fondateurs pour la construction de qualité et l'innovation dans les services immobiliers en Côte d'Ivoire.
+          </p>
+          <p class="text-gray-600 dark:text-gray-300 mb-6">
+            Au cours des années, nous avons évolué d'une petite entreprise locale à un acteur reconnu dans le secteur de la construction et de la menuiserie aluminium, tout en conservant notre engagement envers l'excellence et notre fierté d'être une entreprise 100% ivoirienne.
+          </p>
+          <p class="text-gray-600 dark:text-gray-300">
+            Aujourd'hui, notre équipe d'experts qualifiés continue de servir une clientèle diversifiée, des particuliers aux grandes entreprises, en offrant des solutions sur mesure qui répondent aux besoins spécifiques de chaque projet.
+          </p>
+        </div>
+        
+        <div class="space-y-8" data-aos="fade-left">
+          <img 
+            src="https://images.pexels.com/photos/8961680/pexels-photo-8961680.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" 
+            alt="Équipe IBS SARL" 
+            class="rounded-lg shadow-lg w-full h-auto"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Mission, Vision, Values Section -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4" data-aos="fade-up">
+          Notre Mission & Nos Valeurs
+        </h2>
+        <div class="h-1 w-20 bg-secondary mx-auto mb-6" data-aos="fade-up" data-aos-delay="100"></div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Mission -->
+        <div class="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex justify-center mb-6">
+            <div class="bg-primary/10 p-4 rounded-full">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
+            Notre Mission
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300">
+            Offrir des services de construction et menuiserie aluminium de la plus haute qualité, qui transforment les espaces de vie et de travail tout en contribuant au développement du secteur immobilier ivoirien.
+          </p>
+        </div>
+        
+        <!-- Vision -->
+        <div class="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex justify-center mb-6">
+            <div class="bg-primary/10 p-4 rounded-full">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+            </div>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
+            Notre Vision
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300">
+            Devenir la référence incontournable en Côte d'Ivoire pour la construction, la menuiserie aluminium et les services immobiliers, en étant reconnus pour notre innovation, notre qualité et notre engagement envers l'excellence.
+          </p>
+        </div>
+        
+        <!-- Values -->
+        <div class="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="300">
+          <div class="flex justify-center mb-6">
+            <div class="bg-primary/10 p-4 rounded-full">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
+            Nos Valeurs
+          </h3>
+          <ul class="text-gray-600 dark:text-gray-300 space-y-2">
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-secondary mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <span>Excellence dans le travail</span>
+            </li>
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-secondary mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <span>Intégrité et transparence</span>
+            </li>
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-secondary mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <span>Innovation constante</span>
+            </li>
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-secondary mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <span>Satisfaction client</span>
+            </li>
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-secondary mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <span>Fierté ivoirienne</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Expertise Sections -->
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4" data-aos="fade-up">
+          Notre Expertise
+        </h2>
+        <div class="h-1 w-20 bg-secondary mx-auto mb-6" data-aos="fade-up" data-aos-delay="100"></div>
+        <p class="text-lg text-gray-600 dark:text-gray-300" data-aos="fade-up" data-aos-delay="200">
+          Avec plus de 10 ans d'expérience, nous avons développé une expertise solide dans plusieurs domaines clés.
+        </p>
+      </div>
+      
+      <div class="space-y-16">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+          <div class="md:w-1/2" data-aos="fade-right">
+            <img 
+              src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" 
+              alt="Construction et rénovation par IBS SARL" 
+              class="rounded-lg shadow-lg w-full h-auto"
+            />
+          </div>
+          
+          <div class="md:w-1/2" data-aos="fade-left">
+            <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+              Construction & Rénovation
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              De la construction neuve à la rénovation complète, notre équipe d'experts combine savoir-faire traditionnel et techniques modernes pour créer des espaces fonctionnels, esthétiques et durables.
+            </p>
+            <p class="text-gray-600 dark:text-gray-300">
+              Nous prenons en charge chaque étape du processus, de la conception initiale à la réalisation finale, en veillant à ce que chaque détail réponde aux normes les plus élevées.
+            </p>
+          </div>
+        </div>
+        
+        <div class="flex flex-col md:flex-row-reverse items-center gap-12">
+          <div class="md:w-1/2" data-aos="fade-left">
+            <img 
+              src="https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" 
+              alt="Menuiserie aluminium par IBS SARL" 
+              class="rounded-lg shadow-lg w-full h-auto"
+            />
+          </div>
+          
+          <div class="md:w-1/2" data-aos="fade-right">
+            <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+              Menuiserie Aluminium
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Notre expertise en menuiserie aluminium nous permet de créer des portes, fenêtres, vitrines et autres éléments architecturaux qui combinent esthétique moderne, durabilité et efficacité énergétique.
+            </p>
+            <p class="text-gray-600 dark:text-gray-300">
+              Nous utilisons des matériaux de qualité supérieure et les dernières technologies pour garantir des produits qui résistent à l'épreuve du temps et aux conditions climatiques de la Côte d'Ivoire.
+            </p>
+          </div>
+        </div>
+        
+        <div class="flex flex-col md:flex-row items-center gap-12">
+          <div class="md:w-1/2" data-aos="fade-right">
+            <img 
+              src="https://images.pexels.com/photos/7821547/pexels-photo-7821547.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" 
+              alt="Gestion immobilière par IBS SARL" 
+              class="rounded-lg shadow-lg w-full h-auto"
+            />
+          </div>
+          
+          <div class="md:w-1/2" data-aos="fade-left">
+            <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+              Gestion Immobilière
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Notre service de gestion immobilière offre une tranquillité d'esprit aux propriétaires en prenant en charge tous les aspects liés à leurs biens, de la location à l'entretien quotidien.
+            </p>
+            <p class="text-gray-600 dark:text-gray-300">
+              Nous nous engageons à maximiser la valeur de vos investissements immobiliers tout en minimisant les tracas associés à leur gestion.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <CtaSection 
+    title="Prêt à démarrer votre projet avec IBS SARL ?"
+    subtitle="Contactez notre équipe d'experts pour discuter de vos besoins et obtenir un devis personnalisé."
+  />
+</Layout>

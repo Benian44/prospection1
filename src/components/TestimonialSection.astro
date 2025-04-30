@@ -1,0 +1,141 @@
+---
+interface Testimonial {
+  quote: string;
+  author: string;
+  position: string;
+  company?: string;
+}
+
+const testimonials: Testimonial[] = [
+  {
+    quote: "IBS SARL a dépassé toutes nos attentes dans la rénovation de nos bureaux. Leur équipe a su capturer parfaitement notre vision et la concrétiser avec un souci du détail remarquable.",
+    author: "Francis Konan",
+    position: "Directeur Général",
+    company: "Abidjan Consulting"
+  },
+  {
+    quote: "La qualité de la menuiserie aluminium fournie par IBS SARL est exceptionnelle. Les finitions sont impeccables et le respect des délais a été irréprochable.",
+    author: "Marie Touré",
+    position: "Architecte d'intérieur",
+    company: "Design Élégance"
+  },
+  {
+    quote: "Nous avons fait appel à IBS SARL pour l'installation de nos plafonds staff décoratifs. Le résultat est magnifique et a complètement transformé l'ambiance de notre hôtel.",
+    author: "Paul Diallo",
+    position: "Propriétaire",
+    company: "Hôtel Palm Beach"
+  }
+];
+---
+
+<section class="py-16 bg-white dark:bg-gray-900 overflow-hidden">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4" data-aos="fade-up">
+        Ce que nos clients disent
+      </h2>
+      <div class="h-1 w-20 bg-secondary mx-auto mb-6" data-aos="fade-up" data-aos-delay="100"></div>
+      <p class="text-lg text-gray-600 dark:text-gray-300" data-aos="fade-up" data-aos-delay="200">
+        Notre réputation s'est construite sur la satisfaction de nos clients et leur confiance renouvelée dans nos services.
+      </p>
+    </div>
+    
+    <div class="testimonial-slider">
+      <div class="swiper-wrapper">
+        {testimonials.map((testimonial, index) => (
+          <div class="swiper-slide p-4" data-aos="fade-up" data-aos-delay={100 * index}>
+            <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg shadow-md relative">
+              <!-- Quote icon -->
+              <div class="absolute -top-4 -left-4 h-10 w-10 bg-secondary rounded-full flex items-center justify-center text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                </svg>
+              </div>
+              
+              <blockquote class="text-gray-600 dark:text-gray-300 mb-6">
+                "{testimonial.quote}"
+              </blockquote>
+              
+              <div class="flex items-center">
+                <div class="h-12 w-12 bg-secondary rounded-full flex items-center justify-center text-white font-semibold">
+                  {testimonial.author.charAt(0)}
+                </div>
+                <div class="ml-4">
+                  <div class="font-medium text-gray-900 dark:text-white">
+                    {testimonial.author}
+                  </div>
+                  <div class="text-sm text-gray-500 dark:text-gray-400">
+                    {testimonial.position}{testimonial.company && `, ${testimonial.company}`}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const testimonialsWrapper = document.querySelector('.testimonial-slider .swiper-wrapper');
+    const testimonials = document.querySelectorAll('.testimonial-slider .swiper-slide');
+    
+    if (window.innerWidth < 768) {
+      // For mobile, stack them
+      testimonialsWrapper?.classList.add('block');
+      testimonialsWrapper?.classList.remove('flex');
+    } else {
+      // For desktop, make a flex row
+      testimonialsWrapper?.classList.add('flex');
+      testimonialsWrapper?.classList.remove('block');
+      
+      testimonials.forEach((testimonial) => {
+        const element = testimonial as HTMLElement;
+        element.style.flex = '1 0 350px';
+        element.style.maxWidth = '500px';
+      });
+    }
+  });
+  
+  window.addEventListener('resize', function() {
+    const testimonialsWrapper = document.querySelector('.testimonial-slider .swiper-wrapper');
+    
+    if (window.innerWidth < 768) {
+      testimonialsWrapper?.classList.add('block');
+      testimonialsWrapper?.classList.remove('flex');
+    } else {
+      testimonialsWrapper?.classList.add('flex');
+      testimonialsWrapper?.classList.remove('block');
+    }
+  });
+</script>
+
+<style>
+  .testimonial-slider .swiper-wrapper {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+  
+  .testimonial-slider .swiper-slide {
+    scroll-snap-align: start;
+    flex: 1 0 350px;
+    max-width: 500px;
+  }
+  
+  @media (max-width: 768px) {
+    .testimonial-slider .swiper-wrapper {
+      display: block;
+    }
+    
+    .testimonial-slider .swiper-slide {
+      width: 100%;
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+</style>

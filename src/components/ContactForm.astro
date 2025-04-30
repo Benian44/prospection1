@@ -1,0 +1,148 @@
+---
+// This will be the form that redirects to WhatsApp with the message
+---
+
+<section class="bg-gray-50 dark:bg-gray-800 py-12 md:py-16">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto">
+      <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-8" data-aos="fade-up">
+        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+          Contactez-nous
+        </h3>
+        
+        <form id="contact-form" class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                Nom complet *
+              </label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                required 
+                class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:ring-primary focus:border-primary bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                placeholder="Votre nom"
+              />
+            </div>
+            
+            <div>
+              <label for="phone" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                Téléphone *
+              </label>
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone" 
+                required 
+                class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:ring-primary focus:border-primary bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                placeholder="+225 XX XX XX XX XX"
+              />
+            </div>
+          </div>
+          
+          <div>
+            <label for="service" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Service souhaité *
+            </label>
+            <select 
+              id="service" 
+              name="service" 
+              required 
+              class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:ring-primary focus:border-primary bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+            >
+              <option value="" disabled selected>Sélectionnez un service</option>
+              <option value="Construction & Rénovation">Construction & Rénovation</option>
+              <option value="Menuiserie Aluminium">Menuiserie Aluminium</option>
+              <option value="Rampes en Inox">Rampes en Inox</option>
+              <option value="Auvents">Auvents</option>
+              <option value="Plafonds Staff">Plafonds Staff</option>
+              <option value="Gestion Immobilière">Gestion Immobilière</option>
+              <option value="Autre">Autre</option>
+            </select>
+          </div>
+          
+          <div>
+            <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Description du besoin *
+            </label>
+            <textarea 
+              id="message" 
+              name="message" 
+              rows="4" 
+              required 
+              class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:ring-primary focus:border-primary bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+              placeholder="Décrivez votre projet ou votre besoin..."
+            ></textarea>
+          </div>
+          
+          <div class="text-center">
+            <button 
+              type="submit" 
+              id="submit-form" 
+              class="inline-flex items-center px-6 py-3 bg-secondary hover:bg-secondary-600 text-white font-medium rounded-md transition-colors duration-300"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z" />
+                <path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z" />
+              </svg>
+              Envoyer sur WhatsApp
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact-form');
+    const whatsappNumber = "+22570771650";
+    
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const nameInput = document.getElementById('name') as HTMLInputElement;
+      const phoneInput = document.getElementById('phone') as HTMLInputElement;
+      const serviceInput = document.getElementById('service') as HTMLSelectElement;
+      const messageInput = document.getElementById('message') as HTMLTextAreaElement;
+      
+      if (!nameInput || !phoneInput || !serviceInput || !messageInput) {
+        alert("Une erreur est survenue. Veuillez réessayer.");
+        return;
+      }
+      
+      const name = nameInput.value.trim();
+      const phone = phoneInput.value.trim();
+      const service = serviceInput.value;
+      const message = messageInput.value.trim();
+      
+      if (!name || !phone || !service || !message) {
+        alert("Veuillez remplir tous les champs obligatoires.");
+        return;
+      }
+      
+      const whatsappMessage = `
+Bonjour IBS SARL,
+
+Je souhaite obtenir un devis pour le service suivant : *${service}*
+
+*Informations personnelles :*
+- Nom : ${name}
+- Téléphone : ${phone}
+
+*Description du besoin :*
+${message}
+
+Merci d'avance pour votre retour.
+      `;
+      
+      const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+      window.open(whatsappLink, '_blank');
+      
+      // Optional: Reset form after submission
+      form.reset();
+    });
+  });
+</script>

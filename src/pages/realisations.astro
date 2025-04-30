@@ -1,0 +1,431 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import CtaSection from '../components/CtaSection.astro';
+
+interface Project {
+  id: string;
+  title: string;
+  category: string;
+  location: string;
+  description: string;
+  images: string[];
+  features: string[];
+}
+
+const categories = [
+  "Tous",
+  "Construction",
+  "Menuiserie Aluminium",
+  "Rampes Inox",
+  "Auvents",
+  "Plafonds Staff",
+  "Gestion Immobilière"
+];
+
+const projects: Project[] = [
+  {
+    id: "villa-cocody",
+    title: "Villa moderne à Cocody",
+    category: "Construction",
+    location: "Cocody, Abidjan",
+    description: "Construction complète d'une villa contemporaine de 400m² comprenant 5 chambres, un espace de vie ouvert et une piscine à débordement.",
+    images: [
+      "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+      "https://images.pexels.com/photos/1874508/pexels-photo-1874508.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+      "https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+    ],
+    features: [
+      "Architecture contemporaine",
+      "Matériaux haut de gamme",
+      "Finitions soignées",
+      "Intégration paysagère",
+      "Système domotique"
+    ]
+  },
+  {
+    id: "baies-bureaux",
+    title: "Baies vitrées pour bureaux",
+    category: "Menuiserie Aluminium",
+    location: "Plateau, Abidjan",
+    description: "Installation de baies vitrées en aluminium pour un immeuble de bureaux de 4 étages au cœur du quartier d'affaires.",
+    images: [
+      "https://images.pexels.com/photos/380768/pexels-photo-380768.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+      "https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+      "https://images.pexels.com/photos/1170412/pexels-photo-1170412.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+    ],
+    features: [
+      "Profils aluminium haut de gamme",
+      "Double vitrage isolant",
+      "Protection solaire intégrée",
+      "Système d'ouverture motorisé",
+      "Design épuré"
+    ]
+  },
+  {
+    id: "rampes-residence",
+    title: "Rampes inox pour résidence",
+    category: "Rampes Inox",
+    location: "Riviera, Abidjan",
+    description: "Conception et installation de rampes en inox 316 pour une résidence de luxe en bord de lagune.",
+    images: [
+      "https://images.pexels.com/photos/1249611/pexels-photo-1249611.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+      "https://images.pexels.com/photos/380330/pexels-photo-380330.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+      "https://images.pexels.com/photos/109919/pexels-photo-109919.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+    ],
+    features: [
+      "Inox 316 qualité marine",
+      "Design contemporain",
+      "Fixations invisibles",
+      "Traitement anti-corrosion",
+      "Conformité aux normes de sécurité"
+    ]
+  },
+  {
+    id: "plafonds-restaurant",
+    title: "Plafonds décoratifs restaurant",
+    category: "Plafonds Staff",
+    location: "Zone 4, Abidjan",
+    description: "Création de plafonds staff décoratifs pour un restaurant gastronomique, incluant des motifs personnalisés et un éclairage intégré.",
+    images: [
+      "https://images.pexels.com/photos/296883/pexels-photo-296883.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+      "https://images.pexels.com/photos/1082326/pexels-photo-1082326.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+      "https://images.pexels.com/photos/2565222/pexels-photo-2565222.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+    ],
+    features: [
+      "Motifs personnalisés",
+      "Éclairage LED intégré",
+      "Isolation acoustique",
+      "Finition impeccable",
+      "Installation rapide"
+    ]
+  },
+  {
+    id: "auvent-commercial",
+    title: "Auvent pour commerce",
+    category: "Auvents",
+    location: "Adjamé, Abidjan",
+    description: "Installation d'un auvent en polycarbonate sur structure aluminium pour la devanture d'une galerie commerciale.",
+    images: [
+      "https://images.pexels.com/photos/279607/pexels-photo-279607.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+      "https://images.pexels.com/photos/5178080/pexels-photo-5178080.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+      "https://images.pexels.com/photos/136751/pexels-photo-136751.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+    ],
+    features: [
+      "Polycarbonate anti-UV",
+      "Structure aluminium robuste",
+      "Design moderne",
+      "Résistance aux intempéries",
+      "Montage rapide"
+    ]
+  },
+  {
+    id: "gestion-immeuble",
+    title: "Gestion d'un immeuble de rapport",
+    category: "Gestion Immobilière",
+    location: "Marcory, Abidjan",
+    description: "Prise en charge complète de la gestion d'un immeuble de 20 appartements, incluant location, maintenance et administration.",
+    images: [
+      "https://images.pexels.com/photos/7821547/pexels-photo-7821547.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+      "https://images.pexels.com/photos/10295402/pexels-photo-10295402.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+      "https://images.pexels.com/photos/2079234/pexels-photo-2079234.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+    ],
+    features: [
+      "Gestion locative complète",
+      "Maintenance préventive",
+      "Suivi comptable rigoureux",
+      "Communication transparente",
+      "Valorisation du patrimoine"
+    ]
+  }
+];
+---
+
+<Layout 
+  title="Nos Réalisations" 
+  description="Découvrez les projets réalisés par IBS SARL en construction, menuiserie aluminium, rampes inox, auvents, plafonds staff et gestion immobilière à Abidjan, Côte d'Ivoire."
+>
+  <HeroSection 
+    title="Nos Réalisations"
+    subtitle="Découvrez nos projets récents et notre savoir-faire"
+    backgroundImage="https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+  />
+  
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4" data-aos="fade-up">
+          Portfolio de Projets
+        </h2>
+        <div class="h-1 w-20 bg-secondary mx-auto mb-6" data-aos="fade-up" data-aos-delay="100"></div>
+        <p class="text-lg text-gray-600 dark:text-gray-300" data-aos="fade-up" data-aos-delay="200">
+          Explorez nos réalisations récentes qui témoignent de notre engagement envers l'excellence et la satisfaction client.
+        </p>
+      </div>
+      
+      <!-- Filter Buttons -->
+      <div class="flex flex-wrap justify-center gap-3 mb-12" data-aos="fade-up" data-aos-delay="300">
+        {categories.map((category, index) => (
+          <button 
+            class="filter-btn px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 bg-gray-100 dark:bg-gray-800 hover:bg-primary hover:text-white text-gray-800 dark:text-gray-200"
+            data-category={category === "Tous" ? "all" : category}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+      
+      <!-- Projects Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up">
+        {projects.map((project) => (
+          <div id={project.id} class="project-card scroll-mt-24" data-category={project.category}>
+            <div class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+              <div class="relative h-60 overflow-hidden">
+                <img 
+                  src={project.images[0]} 
+                  alt={project.title} 
+                  class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                />
+                <div class="absolute top-4 left-4 bg-primary/90 text-white text-xs font-medium px-2.5 py-1 rounded">
+                  {project.category}
+                </div>
+              </div>
+              
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-3">
+                  <h3 class="text-xl font-semibold text-gray-900 dark:text-white">{project.title}</h3>
+                </div>
+                
+                <div class="flex items-center text-gray-500 dark:text-gray-400 text-sm mb-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  {project.location}
+                </div>
+                
+                <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
+                  {project.description}
+                </p>
+                
+                <a 
+                  href={`#${project.id}-detail`} 
+                  class="project-detail-btn inline-flex items-center font-medium text-primary dark:text-secondary hover:text-primary-700 dark:hover:text-secondary-400 transition-colors"
+                  data-project-id={project.id}
+                >
+                  Voir les détails
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <!-- Project Detail Modal Overlay -->
+      <div id="project-detail-overlay" class="fixed inset-0 bg-black/70 z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white dark:bg-gray-900 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto p-6 mx-4">
+          <div class="flex justify-between items-start mb-4">
+            <h3 id="project-detail-title" class="text-2xl font-bold text-gray-900 dark:text-white"></h3>
+            <button id="close-detail" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          
+          <div class="flex items-center text-gray-500 dark:text-gray-400 text-sm mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span id="project-detail-location"></span>
+            <span class="mx-2">|</span>
+            <span id="project-detail-category" class="text-primary dark:text-secondary"></span>
+          </div>
+          
+          <div id="project-detail-gallery" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <!-- Images will be populated by JavaScript -->
+          </div>
+          
+          <p id="project-detail-description" class="text-gray-600 dark:text-gray-300 mb-6"></p>
+          
+          <div class="mb-6">
+            <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Caractéristiques du Projet</h4>
+            <ul id="project-detail-features" class="space-y-2 text-gray-600 dark:text-gray-300">
+              <!-- Features will be populated by JavaScript -->
+            </ul>
+          </div>
+          
+          <div class="text-center">
+            <a 
+              href="/demande-devis" 
+              class="inline-flex items-center px-6 py-3 bg-secondary hover:bg-secondary-600 text-white font-medium rounded-md transition-colors duration-300"
+            >
+              Demander un devis similaire
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <CtaSection 
+    title="Prêt à concrétiser votre projet avec IBS SARL ?"
+    subtitle="Contactez notre équipe d'experts dès aujourd'hui pour discuter de vos besoins et obtenir un devis personnalisé."
+  />
+</Layout>
+
+<script define:vars={{ projects }}>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Filter functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => {
+          btn.classList.remove('bg-primary', 'text-white');
+          btn.classList.add('bg-gray-100', 'dark:bg-gray-800', 'text-gray-800', 'dark:text-gray-200');
+        });
+        
+        // Add active class to clicked button
+        button.classList.remove('bg-gray-100', 'dark:bg-gray-800', 'text-gray-800', 'dark:text-gray-200');
+        button.classList.add('bg-primary', 'text-white');
+        
+        const category = button.getAttribute('data-category');
+        
+        projectCards.forEach(card => {
+          if (category === 'all' || card.getAttribute('data-category') === category) {
+            card.classList.remove('hidden');
+            setTimeout(() => {
+              card.classList.remove('opacity-0');
+            }, 10);
+          } else {
+            card.classList.add('opacity-0');
+            setTimeout(() => {
+              card.classList.add('hidden');
+            }, 300);
+          }
+        });
+      });
+    });
+    
+    // Set first button as active by default
+    if (filterButtons.length > 0) {
+      filterButtons[0].click();
+    }
+    
+    // Project detail modal functionality
+    const detailOverlay = document.getElementById('project-detail-overlay');
+    const closeDetailBtn = document.getElementById('close-detail');
+    const detailButtons = document.querySelectorAll('.project-detail-btn');
+    
+    // Detail elements
+    const detailTitle = document.getElementById('project-detail-title');
+    const detailLocation = document.getElementById('project-detail-location');
+    const detailCategory = document.getElementById('project-detail-category');
+    const detailGallery = document.getElementById('project-detail-gallery');
+    const detailDescription = document.getElementById('project-detail-description');
+    const detailFeatures = document.getElementById('project-detail-features');
+    
+    detailButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        const projectId = button.getAttribute('data-project-id');
+        const project = projects.find(p => p.id === projectId);
+        
+        if (project) {
+          // Populate modal with project data
+          detailTitle.textContent = project.title;
+          detailLocation.textContent = project.location;
+          detailCategory.textContent = project.category;
+          detailDescription.textContent = project.description;
+          
+          // Populate gallery
+          detailGallery.innerHTML = '';
+          project.images.forEach(image => {
+            const imgDiv = document.createElement('div');
+            imgDiv.className = 'h-48 overflow-hidden rounded-lg';
+            
+            const img = document.createElement('img');
+            img.src = image;
+            img.alt = project.title;
+            img.className = 'w-full h-full object-cover hover:scale-105 transition-transform duration-300';
+            
+            imgDiv.appendChild(img);
+            detailGallery.appendChild(imgDiv);
+          });
+          
+          // Populate features
+          detailFeatures.innerHTML = '';
+          project.features.forEach(feature => {
+            const li = document.createElement('li');
+            li.className = 'flex items-start';
+            
+            li.innerHTML = `
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-secondary flex-shrink-0 mt-0.5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              ${feature}
+            `;
+            
+            detailFeatures.appendChild(li);
+          });
+          
+          // Show modal
+          document.body.style.overflow = 'hidden';
+          detailOverlay.classList.remove('hidden');
+          setTimeout(() => {
+            detailOverlay.classList.remove('opacity-0');
+          }, 10);
+        }
+      });
+    });
+    
+    // Close modal
+    closeDetailBtn.addEventListener('click', () => {
+      detailOverlay.classList.add('opacity-0');
+      setTimeout(() => {
+        detailOverlay.classList.add('hidden');
+        document.body.style.overflow = '';
+      }, 300);
+    });
+    
+    // Close modal when clicking outside
+    detailOverlay.addEventListener('click', (e) => {
+      if (e.target === detailOverlay) {
+        closeDetailBtn.click();
+      }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !detailOverlay.classList.contains('hidden')) {
+        closeDetailBtn.click();
+      }
+    });
+  });
+</script>
+
+<style>
+  .project-card {
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  }
+  
+  .project-card.hidden {
+    display: none;
+  }
+  
+  .project-card.opacity-0 {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+</style>
